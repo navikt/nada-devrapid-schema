@@ -4,6 +4,7 @@ plugins {
     kotlin("plugin.serialization").version("1.3.61")
     `java-library`
     `maven-publish`
+    id("net.researchgate.release").version("2.6.0")
 }
 
 repositories {
@@ -20,3 +21,10 @@ dependencies {
     implementation("com.github.guepardoapps:kulid:1.1.2.0")
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["kotlin"])
+        }
+    }
+}
