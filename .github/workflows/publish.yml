@@ -1,0 +1,19 @@
+name: Publish Packages
+
+on:
+  push:
+    tags:
+      - 1.*.*
+      - 2.*.*
+      - 3.*.*
+
+publish:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Publish to github package registry
+      env:
+        GITHUB_TOKEN: {{ secrets.GITHUB_TOKEN }}
+      run: |
+        ./gradlew publish
