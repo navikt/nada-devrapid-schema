@@ -62,4 +62,5 @@ githubRelease {
     setOverwrite(true)
     setTargetCommitish("${project.version}")
     setTagName("${project.version}")
+    setOwner("navikt")
 }
