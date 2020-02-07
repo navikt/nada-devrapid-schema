@@ -4,6 +4,7 @@ plugins {
     kotlin("plugin.serialization").version("1.3.61")
     `maven-publish`
     id("net.researchgate.release").version("2.6.0")
+    id("com.github.breadmoirai.github-release").version("2.2.9")
 }
 
 repositories {
@@ -48,4 +49,17 @@ publishing {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    testLogging {
+        showExceptions = true
+        showStackTraces = true
+        exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+        events("passed", "skipped", "failed")
+    }
+}
+
+githubRelease {
+    setToken(System.getenv("GITHUB_TOKEN"))
+    setOverwrite(true)
+    setTargetCommitish("${project.version}")
+    setTagName("${project.version}")
 }
