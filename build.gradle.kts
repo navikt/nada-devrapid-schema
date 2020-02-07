@@ -3,6 +3,7 @@ plugins {
     kotlin("kapt").version("1.3.61")
     kotlin("plugin.serialization").version("1.3.61")
     `maven-publish`
+    `java-library`
     id("net.researchgate.release").version("2.6.0")
     id("com.github.breadmoirai.github-release").version("2.2.9")
 }
@@ -14,9 +15,12 @@ repositories {
     maven(url = "https://jitpack.io")
 }
 
+
 java {
     sourceCompatibility = org.gradle.api.JavaVersion.VERSION_11
     targetCompatibility = org.gradle.api.JavaVersion.VERSION_11
+    withJavadocJar()
+    withSourcesJar()
 }
 group = "no.nav.nada"
 dependencies {
@@ -32,7 +36,7 @@ dependencies {
 publishing {
     publications {
         create<MavenPublication>("gpr") {
-            components["kotlin"]
+            from(components["java"])
         }
     }
     repositories {
