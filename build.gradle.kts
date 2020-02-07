@@ -64,7 +64,6 @@ tasks.withType<Test> {
 githubRelease {
     setToken(System.getenv("GITHUB_TOKEN"))
     setOverwrite(true)
-    setTargetCommitish("${project.version}")
     setTagName("${project.version}")
     setOwner("navikt")
 }
