@@ -23,5 +23,5 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle.kts') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-      - runs: |
+      - run: |
           ./gradlew build
