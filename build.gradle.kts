@@ -22,14 +22,20 @@ java {
     withJavadocJar()
     withSourcesJar()
 }
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> { kotlinOptions.jvmTarget = "1.8" }
+
 group = "no.nav.nada"
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
     implementation("com.sksamuel.avro4k:avro4k-core:0.20.0")
     implementation("com.github.guepardoapps:kulid:1.1.2.0")
+    implementation("com.google.protobuf:protobuf-java:3.11.3")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.6.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.6.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.6.0")
     testImplementation("org.assertj:assertj-core:3.15.0")
 }
 
