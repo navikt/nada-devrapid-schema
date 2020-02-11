@@ -1,6 +1,5 @@
 package no.nav.nada.devrapid.schema
 
-import com.github.guepardoapps.kulid.ULID
 import com.sksamuel.avro4k.Avro
 import com.sksamuel.avro4k.AvroDoc
 import com.sksamuel.avro4k.AvroFixed
@@ -58,7 +57,7 @@ fun main(args: Array<String>) {
     val schema = Avro.default.schema(DevEvent.serializer())
     println(schema.toString(true))
     val event = DevEvent(
-        nrn = NadaResourceNames(id = "nrn:nada:push:${ULID.random()}"),
+        nrn = NadaResourceNames(id = "nrn:nada:push:test"),
         application = "nada-devrapid",
         target = Target(namespace = "q1", zone = "fss", environment = "preprod"),
         team = "NADA",
