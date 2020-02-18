@@ -28,7 +28,7 @@ group = "no.nav.nada"
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
-    implementation("com.sksamuel.avro4k:avro4k-core:0.20.0")
+    implementation("com.sksamuel.avro4k:avro4k-core:0.21.0")
     implementation("com.google.protobuf:protobuf-java:3.11.3")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.6.0")
