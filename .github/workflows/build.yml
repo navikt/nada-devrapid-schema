@@ -10,6 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
         name: Checkout code
+      - uses: gradle/wrapper-validation-action@v1
+        name: Validate Gradle wrapper
       - uses: actions/cache@v1
         name: Cache Gradle wrapper
         with:
